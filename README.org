@@ -1,0 +1,15 @@
+#+TITLE: Crow翻译器
+* 核心功能
+** 渲染方式
++ posframe
++ minibuffer
++ buffer
++ overlay
+  不知道这种能不能实现
+** 跟随翻译
+支持在特定模式下，以句子，段落或单词为单位自动翻译，并可通过多种渲染方式进行呈现
+
+规则:
+1. 如果有选区，优先翻译选区内的内容
+2. 翻译单位 优先级: sentence -> word -> symbol -> filename -> line
+** 翻译指定句子
