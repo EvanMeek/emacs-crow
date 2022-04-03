@@ -18,8 +18,8 @@
 ;;  Emacs的Crow翻译工具
 ;;
 ;;; Code:
-(require 'posframe)
 (require 'crow-var)
+(require 'crow-ui)
 (require 'crow-lib)
 (require 'crow-core)
 

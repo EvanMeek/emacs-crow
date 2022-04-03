@@ -18,17 +18,7 @@
 ;;  The ui code for crow
 ;;
 ;;; Code:
-
-(defun crow--show-translated-text-by-posframe()
-  (when (posframe-workable-p)
-    (posframe-show "*crow-posframe*"
-               :string crow--translated-text
-               :poshandler 'posframe-poshandler-point-bottom-left-corner-upward
-               :timeout 200
-               :internal-border-width 10)
-    (unwind-protect
-        (push (read-event) unread-command-events)
-      (posframe-hide "*crow-posframe*"))))
+(require 'crow-posframe)
 
 (provide 'crow-ui)
 ;;; crow-ui.el ends here

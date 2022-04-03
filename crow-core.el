@@ -23,12 +23,30 @@
   "组合crow源码，以提供用户使用的命令.")
 
 (defun crow-demo-start ()
+  "startstartstartstartstartstartstartstartstartstart"
   (interactive)
   (add-hook 'post-command-hook 'crow--tap))
 
 (defun crow-demo-stop ()
+  "stopstopstopstopstopstopstopstopstopstopstopstopstop"
   (interactive)
   (remove-hook 'post-command-hook 'crow--tap))
+
+(define-minor-mode crow-mode ()
+  (interactive)
+  (run-hooks crow-mode-hook)
+  (message "crow-mode: %s" crow-mode)
+  (cond (crow-mode (progn (add-hook 'post-command-hook 'crow--tap)
+                          (message "run")))
+        (t (progn (remove-hook 'post-command-hook 'crow--tap)
+                  (message "stop")))))
+
+(defun crow-next-translate-type ()
+  (interactive)
+  (setq crow-translate-type (-rotate -1 crow-translate-type)))
+(defun crow-prev-translate-type ()
+  (interactive)
+  (setq crow-translate-type (-rotate 1 crow-translate-type)))
 
 (provide 'crow-core)
 ;;; crow-core.el ends here
