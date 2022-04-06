@@ -46,26 +46,27 @@
   "内部变量|上一个获取的源数据")
 (defvar crow--current-content nil
   "内部变量|当前已获取的源数据")
-(defvar crow-mode-hook nil
-  "TODO: 补全crow-mode-hook注释")
+
+;; (defvar crow-mode-hooks nil
+;;   "TODO: 补全crow-mode-hook注释")
 (defvar crow-data-buffer-name "*CROW-DATA*"
   "此变量控制着CROW与外部交互翻译元数据的Buffer名，不建议修改.")
 (defvar crow-translate-delay 0.2
   "此变量控制每次翻译的间隔延迟.")
-(defvar crow-posframe-hide-timeout 10
+(defvar crow-posframe-hide-timeout 3
   "此变量控制posframe自动隐藏的时间.")
 (defvar crow-posframe-position nil
   "此变量控制posframe显示的位置，可用值可以参造posframe-show的文档, 或者你自己写一个poshandler函数.
 例子: (setq crow-posframe-position 'posframe-poshandler-frame-center).")
-(defvar crow-translate-type (list 'sentence 'word)
+(defvar crow-translate-type '(word)
   "此变量控制获取原文颗粒度的类型,默认使用第一个，是一个list可选项有sentence(句子)，word(单词)，line(单行)，page(单页).
 参数基本就是thing-at-point的THING可选值，不过就上面的几个是比较推荐使用的.
 例子: (setq crow-translate-type (list 'sentence 'word 'line))")
-(defvar crow-enable-info '(:examples t
+(defvar crow-enable-info '(:examples nil
                            :source t
-                           :translit t
+                           :translit nil
                            :translation t
-                           :options t)
+                           :options nil)
   "Crow 开启的翻译信息.
 是一个plist，可选keyword有exmaples(例句), source(原文),
 translit(音译), translation(译文), options(其他), 将需要开启的信息对应值设置为非nil即可。
@@ -75,6 +76,10 @@ translit(音译), translation(译文), options(其他), 将需要开启的信息
    :translit t
    :translation t
    :options t)")
+
+(defvar crow-ui-type '(eldoc posframe)
+  "此变量控制呈现翻译文本的UI，默认选择第一个，参数是一个List.
+例子: (setq crow-ui-type '(eldoc posframe))")
 
 (provide 'crow-var)
 ;;; crow-var.el ends here
