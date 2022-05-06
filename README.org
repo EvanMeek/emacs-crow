@@ -4,3 +4,39 @@
 
 下面是一些演示视频:
 [[file:assets/emacs-crow-preview.mp4]]
+
+* 安装方式
+
+** doom emacs
+#+begin_src emacs-lisp
+(package! crow-mode :recpie (:host github :repo "evanmeek/crow-mode"))
+#+end_src
+#+begin_src emacs-lisp
+use-package! crow
+  :commands (crow-mode)
+  :init
+  (setq
+   ;; crow开启的翻译信息
+   crow-enable-info '(:examples nil
+                      :source t
+                      :translit nil
+                      :translation t
+                      :options nil)
+   ;; crow翻译间隔延迟
+   crow-translate-delay 0
+   ;; crow翻译单位类型
+   crow-translate-type (list 'word 'sentence)
+   ;; 翻译文本ui呈现类型
+   crow-ui-type '(posframe eldoc)
+   ;; posframe超时隐藏时间
+   crow-posframe-hide-timeout 3
+   ;; crow posframe放置的位置
+   crow-posframe-position (lambda () (point)))
+  :config
+  (map! (:leader
+         (:prefix ("[" . "app")
+          (:prefix ("i" . "crow")
+           :desc "开关crow翻译" "i" #'crow-mode
+           :desc "切换翻译单位" "t" #'crow-next-translate-type
+           :desc "切换翻译UI" "u" #'crow-next-ui-type ))))
+#+end_src

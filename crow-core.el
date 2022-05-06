@@ -41,12 +41,16 @@
   (message "> CROW 已切换至 %s 模式" (car crow-translate-type)))
 
 (defun crow-next-ui-type ()
+  (interactive)
   "切换到下一种翻译UI."
-  (setq crow-ui-type (-rotate -1 crow-ui-type)))
+  (setq crow-ui-type (-rotate -1 crow-ui-type))
+  (message "> CROW 已切换显示方式为 %s" (car crow-ui-type)))
 
 (defun crow-prev-ui-type ()
   "切换到下一种翻译UI."
-  (setq crow-ui-type (-rotate 1 crow-ui-type)))
+  (interactive)
+  (setq crow-ui-type (-rotate 1 crow-ui-type)
+  (message "> CROW 已切换显示方式为 %s" (car crow-ui-type)))
 
 (provide 'crow-core)
 ;;; crow-core.el ends here
