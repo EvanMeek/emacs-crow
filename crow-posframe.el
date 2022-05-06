@@ -30,7 +30,7 @@
     (setq crow--translate-status nil)
     (posframe-show "*crow-posframe*"
                    :string crow--translated-text
-                   :position crow-posframe-position
+                   :poshandler crow-posframe-position
                    :internal-border-width 2
                    :timeout crow-posframe-hide-timeout
                    :hidehandler #'crow--posframe-hidehandler)))
