@@ -50,7 +50,7 @@
   "切换到下一种翻译UI."
   (interactive)
   (setq crow-ui-type (-rotate 1 crow-ui-type)
-  (message "> CROW 已切换显示方式为 %s" (car crow-ui-type)))
+  (message "> CROW 已切换显示方式为 %s" (car crow-ui-type))))
 
 (provide 'crow-core)
 ;;; crow-core.el ends here
