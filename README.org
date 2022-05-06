@@ -12,7 +12,7 @@
 (package! crow-mode :recpie (:host github :repo "evanmeek/crow-mode"))
 #+end_src
 #+begin_src emacs-lisp
-use-package! crow
+(use-package! crow
   :commands (crow-mode)
   :init
   (setq
